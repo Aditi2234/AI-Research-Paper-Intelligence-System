@@ -1,4 +1,4 @@
-# Data & model artifacts (large, regenerable -- see data/README.md)
+# Data & model artifacts 
 data/*.csv
 data/*.npy
 data/*.index
