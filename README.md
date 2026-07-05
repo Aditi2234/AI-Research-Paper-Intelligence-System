@@ -20,31 +20,29 @@ An AI-powered semantic search engine for Machine Learning research papers. Inste
 ## 🏗️ Project Workflow
  
 ```
-                                      
-                                                           User Query
-                                                                │
-                                                                ▼
-                                                      Sentence Transformer
-                                                       (all-MiniLM-L6-v2)
-                                                                │
-                                                                ▼
-                                                       Semantic Embedding
-                                                                │
-                                                                ▼
-                                                       FAISS Vector Search
-                                                                │
-                                                                ▼
-                                                  Top-K Relevant Research Papers
-                                                                │
-                                                                ▼
-                                                    ┌───────────┬────────────┬
-                                                    ▼           ▼            ▼
-                                               Summarizer     KeyBERT      spaCy NER
-                                                    │           │            │
-                                                    └───────────┴────────────┘
-                                                                │
-                                                                ▼
-                                                        Streamlit Dashboard
+                 User Query
+                     │
+                     ▼
+             Sentence Transformer
+              (all-MiniLM-L6-v2)
+                     │
+                     ▼
+             Semantic Embedding
+                     │
+                     ▼
+             FAISS Vector Search
+                     │
+                     ▼
+       Top-K Relevant Research Papers
+                     │
+            ┌────────┬────────┬
+            ▼        ▼        ▼
+       Summarizer  KeyBERT  spaCy NER
+            │        │        │
+            └────────┴────────┘
+                     │
+                     ▼
+            Streamlit Dashboard
 ```
 
 ---
