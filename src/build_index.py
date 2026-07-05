@@ -2,7 +2,6 @@ import os
 import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
-
 from data_prep import get_cleaned_data
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
@@ -13,14 +12,11 @@ MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIM = 384
 BATCH_SIZE = 32
 
-
 def load_model() -> SentenceTransformer:
     print(f"Loading sentence-transformer model: {MODEL_NAME}")
     return SentenceTransformer(MODEL_NAME)
 
-
 def build_embeddings(df, model: SentenceTransformer, force: bool = False) -> np.ndarray:
-    """Encode every paper's text into a vector, caching the result to disk."""
     if not force and os.path.exists(EMBEDDINGS_PATH):
         print("Loading cached embeddings...")
         return np.load(EMBEDDINGS_PATH)
@@ -35,7 +31,6 @@ def build_embeddings(df, model: SentenceTransformer, force: bool = False) -> np.
     np.save(EMBEDDINGS_PATH, embeddings)
     print(f"Embeddings saved to {EMBEDDINGS_PATH}")
     return embeddings
-
 
 def build_faiss_index(embeddings: np.ndarray, force: bool = False) -> faiss.Index:
     if not force and os.path.exists(INDEX_PATH):
@@ -54,15 +49,12 @@ def build_faiss_index(embeddings: np.ndarray, force: bool = False) -> faiss.Inde
     print(f"FAISS index saved to {INDEX_PATH}")
     return index
 
-
 def build_all(force: bool = False):
-    """Full pipeline: clean data -> embeddings -> FAISS index."""
     df = get_cleaned_data()
     model = load_model()
     embeddings = build_embeddings(df, model, force=force)
     index = build_faiss_index(embeddings, force=force)
     return df, model, embeddings, index
-
 
 if __name__ == "__main__":
     build_all(force=True)
