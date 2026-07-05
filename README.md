@@ -20,32 +20,40 @@ An AI-powered semantic search engine for Machine Learning research papers. Inste
 ## 🏗️ Project Workflow
  
 ```
-                 User Query
-                     │
-                     ▼
-             Sentence Transformer
-              (all-MiniLM-L6-v2)
-                     │
-                     ▼
-             Semantic Embedding
-                     │
-                     ▼
-             FAISS Vector Search
-                     │
-                     ▼
-       Top-K Relevant Research Papers
-                     │
-            ┌────────┬────────┬
-            ▼        ▼        ▼
-       Summarizer  KeyBERT  spaCy NER
-            │        │        │
-            └────────┴────────┘
-                     │
-                     ▼
-            Streamlit Dashboard
+                              User Query
+                                  │
+                                  ▼
+                          Sentence Transformer
+                           (all-MiniLM-L6-v2)
+                                  │
+                                  ▼
+                          Semantic Embedding
+                                  │
+                                  ▼
+                          FAISS Vector Search
+                                  │
+                                  ▼
+                    Top-K Relevant Research Papers
+                                  │
+                         ┌────────┬────────┬
+                         ▼        ▼        ▼
+                    Summarizer  KeyBERT  spaCy NER
+                         │        │        │
+                         └────────┴────────┘
+                                  │
+                                  ▼
+                         Streamlit Dashboard
 ```
 
+## 📂 Dataset
+
+The dataset used in this project is available on Hugging Face:
+
+https://huggingface.co/datasets/CShorten/ML-ArXiv-Papers
+
 ---
+
+
 ## 🚀 Installation
 
 ### 1. Clone the Repository
